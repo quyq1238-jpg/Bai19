@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 19 · Khi điều kiện thay đổi</title>
+<style>
+:root{--ink:#182e39;--muted:#51656d;--paper:#f7f6ef;--green:#086b56;--mint:#d9efdf;--line:#cad5ce;--orange:#f3bd65}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.5 system-ui,sans-serif}button,input{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:10px;background:white;color:var(--ink);padding:10px 18px;font-weight:650}button:hover:not(:disabled){border-color:var(--green);background:#eef5ee}button:focus-visible,input:focus-visible{outline:3px solid #c47715;outline-offset:3px}button:disabled{cursor:default;opacity:.48}.wrap{max-width:1240px;margin:auto;padding:28px 32px 40px}header{display:flex;gap:20px;align-items:center;margin-bottom:25px}.badge{background:var(--ink);color:#fff;border-radius:16px;width:64px;height:64px;display:grid;place-content:center;font-size:29px;font-weight:750;flex-shrink:0}.eyebrow{font-size:13px;font-weight:750;letter-spacing:1.7px;color:var(--green);text-transform:uppercase}h1{font-size:clamp(25px,3vw,38px);line-height:1.2;margin:5px 0}header p{margin:5px 0 0;color:var(--muted);font-size:16px}.tabs{display:flex;border-bottom:1px solid var(--line);gap:8px;margin-bottom:24px}.tabs button{background:transparent;border:0;border-bottom:4px solid transparent;border-radius:8px 8px 0 0;padding:13px 24px}.tabs [aria-selected=true]{border-color:var(--green);color:var(--green);background:#e8efe5}.section-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}h2{margin:0;font-size:24px}.step{font-size:14px;color:var(--muted)}.controls{background:white;border:1px solid var(--line);border-radius:16px;padding:18px 22px;display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}.field{display:grid;grid-template-columns:22px 130px;gap:5px;align-items:center}.field label{font-weight:750;font-size:24px}input{width:100%;border:1px solid #9bada6;border-radius:8px;padding:8px 10px;color:var(--ink);background:#fff}.error{grid-column:1/-1;color:#a52825;font-size:14px;min-height:21px}.presets{margin-left:auto}.caption{display:block;color:var(--muted);font-size:14px;margin-bottom:7px}.presets button{padding:6px 10px;font-size:15px}.stage{background:#eaf0e7;border:1px solid var(--line);border-radius:18px;margin-top:18px;overflow:hidden;position:relative}.equation{font-size:clamp(26px,4vw,42px);font-weight:720;text-align:center;margin:14px 12px 0;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}.stage svg{display:block;width:100%;height:auto}.path{fill:none;stroke:#b9c9bd;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .25s}.path.active{stroke:var(--green);stroke-width:7}.node{fill:#fff;stroke:#bdcdbf;stroke-width:1.5}.svg-label{font:600 20px system-ui;fill:var(--ink)}.route-label{font:600 17px system-ui;fill:#51656d}.token rect{fill:var(--ink);stroke:#fff;stroke-width:3}.token text{font:650 19px system-ui;fill:white}.prediction{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:20px 0 14px}.prediction strong{margin-right:8px}.choices{display:flex;flex-wrap:wrap;gap:8px}button[aria-pressed=true]{background:var(--ink);color:white;border-color:var(--ink)}.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.primary{background:var(--green);color:white;border-color:var(--green);min-width:155px}.primary:hover:not(:disabled){background:#045442;color:white}.hint{font-size:15px;color:var(--muted)}.status{font-size:19px;margin:12px 0 0;min-height:29px}.result{border-left:4px solid var(--green);background:#e0efdf;padding:15px 20px;border-radius:0 12px 12px 0;margin-top:16px}.result h3{font-size:23px;margin:0 0 5px}.result p{margin:5px 0}.bridge{font-weight:650}.question{border-top:1px solid var(--line);margin-top:22px;padding-top:18px;font-size:21px;font-weight:650}.question span{color:var(--green);margin-right:8px}.lights-controls{align-items:center}.light-note{margin:0;font-size:15px;color:var(--muted)}.traffic-stage{background:#e6efed}.traffic-stage .svg-label{font-size:22px}.bulb{fill:#34444b;stroke:#879b9c;stroke-width:2}.bulb.on.red{fill:#f54d4d}.bulb.on.yellow{fill:#ffd35b}.bulb.on.green{fill:#5ee5a0}.traffic-caption{position:absolute;top:16px;left:22px;font-weight:700;font-size:21px}footer{color:var(--muted);font-size:13px;margin-top:25px}[hidden]{display:none!important}@media(min-width:1000px){.equation-stage svg{max-height:355px}.traffic-stage svg{max-height:375px}}@media(max-width:650px){.wrap{padding:18px 14px}.badge{width:50px;height:54px}.tabs button{padding:12px;font-size:16px}.controls{padding:14px;gap:10px}.field{grid-template-columns:20px 100px}.presets{margin-left:0;width:100%}.section-top{display:block}.step{display:block;margin-top:5px}.prediction{align-items:flex-start}.prediction strong{width:100%}.choices button{font-size:16px;padding:9px 12px}.question{font-size:18px}.traffic-caption{font-size:16px;top:10px;left:14px}.equation-stage svg{width:100%}.hint{width:100%}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header><div class="badge" aria-hidden="true">19</div><div><div class="eyebrow">Tin học 10 · Khởi động 3–5 phút</div><h1>Khi điều kiện thay đổi…</h1><p>Quan sát, dự đoán và khám phá cách chọn hành động phù hợp.</p></div></header>
+<nav class="tabs" role="tablist" aria-label="Chọn hoạt cảnh"><button id="tab-equation" role="tab" aria-selected="true" aria-controls="equation-panel" tabindex="0">Giải phương trình</button><button id="tab-traffic" role="tab" aria-selected="false" aria-controls="traffic-panel" tabindex="-1">Đèn giao thông</button></nav>
+<section id="equation-panel" role="tabpanel" aria-labelledby="tab-equation">
+<div class="section-top"><h2>01 / Một phương trình, những ngã rẽ</h2><span class="step">Chọn hệ số → Dự đoán → Quan sát</span></div>
+<div class="controls">
+<div class="field"><label for="a">a</label><input id="a" type="text" inputmode="decimal" value="2" aria-describedby="a-error" autocomplete="off"><span id="a-error" class="error"></span></div>
+<div class="field"><label for="b">b</label><input id="b" type="text" inputmode="decimal" value="-4" aria-describedby="b-error" autocomplete="off"><span id="b-error" class="error"></span></div>
+<div class="presets"><span class="caption">Thử nhanh một tình huống</span><button data-preset="2,-4">a = 2; b = −4</button> <button data-preset="0,3">a = 0; b = 3</button> <button data-preset="0,0">a = 0; b = 0</button></div>
+</div>
+<div class="stage equation-stage"><div id="equation-display" class="equation" aria-live="polite"></div>
+<svg viewBox="0 0 960 430" role="img" aria-labelledby="flow-title flow-desc"><title id="flow-title">Hành trình kiểm tra điều kiện của phương trình</title><desc id="flow-desc">Thẻ phương trình đi đến trạm kiểm tra a khác 0. Khi a bằng 0, thẻ tiếp tục kiểm tra b bằng 0. Đường đang đi được tô đậm.</desc>
+<path id="route-start" class="path" d="M420 45 V112"/>
+<path id="route-one" class="path" d="M330 137 H170 V330"/>
+<path id="route-zero" class="path" d="M510 137 H690 V225"/>
+<path id="route-none" class="path" d="M600 250 H535 V360"/>
+<path id="route-infinite" class="path" d="M780 250 H825 V360"/>
+<rect class="node" x="310" y="108" width="220" height="58" rx="16"/><text class="svg-label" x="420" y="144" text-anchor="middle">a có khác 0 không?</text>
+<rect class="node" x="580" y="221" width="220" height="58" rx="16"/><text class="svg-label" x="690" y="257" text-anchor="middle">b có bằng 0 không?</text>
+<text class="route-label" x="224" y="126">Có: a ≠ 0</text><text class="route-label" x="555" y="126">Không: a = 0</text><text class="route-label" x="420" y="299">Không: b ≠ 0</text><text class="route-label" x="809" y="300">Có: b = 0</text>
+<rect class="node" x="60" y="330" width="220" height="64" rx="14"/><text class="svg-label" x="170" y="369" text-anchor="middle">Tìm giá trị của x</text>
+<rect class="node" x="425" y="360" width="220" height="54" rx="14"/><text class="svg-label" x="535" y="394" text-anchor="middle">Xét đẳng thức</text>
+<rect class="node" x="715" y="360" width="220" height="54" rx="14"/><text class="svg-label" x="825" y="394" text-anchor="middle">Xét đẳng thức</text>
+<g id="equation-token" class="token" transform="translate(330 10)"><rect width="180" height="48" rx="12"/><text id="token-text" x="90" y="30" text-anchor="middle" textLength="155" lengthAdjust="spacingAndGlyphs"></text></g>
+</svg></div>
+<div class="prediction"><strong>Em dự đoán:</strong><div class="choices" id="equation-choices"><button data-choice="one" aria-pressed="false">Một nghiệm</button><button data-choice="none" aria-pressed="false">Vô nghiệm</button><button data-choice="infinite" aria-pressed="false">Vô số nghiệm</button></div></div>
+<div class="actions"><button id="equation-run" class="primary" disabled>Bắt đầu</button><button id="equation-reset">Làm lại</button><span id="equation-hint" class="hint">Chọn một dự đoán để bắt đầu.</span></div>
+<p id="equation-status" class="status" role="status"></p><div id="equation-result" class="result" role="status" hidden></div>
+<p class="question"><span>Thảo luận</span>Vì sao cùng một dạng phương trình nhưng cách giải và kết luận lại khác nhau?</p>
+</section>
+<section id="traffic-panel" role="tabpanel" aria-labelledby="tab-traffic" hidden>
+<div class="section-top"><h2>02 / Đến ngã tư, xe sẽ làm gì?</h2><span class="step">Chọn đèn → Dự đoán → Quan sát</span></div>
+<div class="controls lights-controls"><strong>Chọn đèn:</strong><div id="light-choices" class="choices"><button data-light="red" aria-pressed="true">Đỏ</button><button data-light="yellow" aria-pressed="false">Vàng</button><button data-light="green" aria-pressed="false">Xanh</button></div><p class="light-note" id="yellow-note" hidden>Tình huống mô phỏng: xe còn đủ khoảng cách để dừng trước vạch.</p></div>
+<div class="stage traffic-stage"><div class="traffic-caption" id="traffic-caption">Đèn đỏ · Xe đang chờ mô phỏng</div>
+<svg viewBox="0 0 960 390" role="img" aria-labelledby="street-title street-desc"><title id="street-title">Xe ô tô tại ngã tư có đèn tín hiệu</title><desc id="street-desc">Xe xuất phát từ bên trái, còn xa vạch dừng. Đèn đỏ hoặc vàng: xe dừng trước vạch. Đèn xanh: xe đi qua vạch.</desc>
+<circle cx="770" cy="90" r="42" fill="#fff6ce"/><path d="M0 190V110H90V190H120V70H205V190H230V125H310V190H350V90H430V190H470V120H555V190H850V100H930V190H960V230H0Z" fill="#c6d9d2"/><path d="M135 92H190M135 117H190M135 142H190M365 115H415M365 140H415" stroke="#eaf2ec" stroke-width="10"/>
+<rect y="213" width="960" height="23" fill="#adc0ae"/><rect y="236" width="960" height="154" fill="#41545b"/><path d="M0 354H960" stroke="#cad3c9" stroke-width="4" stroke-dasharray="42 28"/>
+<rect x="660" y="241" width="9" height="100" rx="2" fill="#fff"/><text x="664" y="376" fill="white" font-size="19" text-anchor="middle">Vạch dừng</text>
+<path d="M713 237V77" stroke="#50686c" stroke-width="12"/><rect x="683" y="42" width="60" height="153" rx="20" fill="#1c3039"/>
+<circle id="bulb-red" class="bulb red on" cx="713" cy="72" r="17"/><circle id="bulb-yellow" class="bulb yellow" cx="713" cy="118" r="17"/><circle id="bulb-green" class="bulb green" cx="713" cy="164" r="17"/>
+<g id="car" transform="translate(40 0)"><path d="M10 281L34 273L56 240Q60 234 72 234H123Q134 234 141 245L162 274L180 281V313H10Z" fill="#f3bd65" stroke="#213b44" stroke-width="3"/><path d="M66 244H91V272H47ZM100 244H121L143 272H100Z" fill="#dff2ef"/><rect x="165" y="285" width="14" height="9" rx="3" fill="#fff6d5"/><circle cx="47" cy="313" r="19" fill="#20343e"/><circle cx="145" cy="313" r="19" fill="#20343e"/><circle cx="47" cy="313" r="8" fill="#c1d0cd"/><circle cx="145" cy="313" r="8" fill="#c1d0cd"/></g>
+</svg></div>
+<div class="prediction"><strong>Xe nên làm gì?</strong><div class="choices" id="traffic-choices"><button data-choice="stop" aria-pressed="false">Dừng lại</button><button data-choice="slow" aria-pressed="false">Giảm tốc và dừng</button><button data-choice="go" aria-pressed="false">Đi tiếp</button></div></div>
+<div class="actions"><button id="traffic-run" class="primary" disabled>Chạy mô phỏng</button><button id="traffic-reset">Làm lại</button><span id="traffic-hint" class="hint">Chọn một dự đoán để bắt đầu.</span></div>
+<p id="traffic-status" class="status" role="status"></p><div id="traffic-result" class="result" role="status" hidden></div>
+<p class="question"><span>Thảo luận</span>Xe cần kiểm tra điều gì trước khi quyết định dừng hay đi?</p>
+</section>
+<footer>BÀI 19 · CÂU LỆNH RẼ NHÁNH IF <span aria-hidden="true"> / </span> Quan sát điều kiện, khám phá lựa chọn.</footer>
+</main>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const bridge = 'Muốn chọn cách xử lí phù hợp, cần kiểm tra điều kiện. Đây là ý tưởng của cấu trúc rẽ nhánh.';
+const labels = {one:'Một nghiệm',none:'Vô nghiệm',infinite:'Vô số nghiệm',stop:'Dừng lại',slow:'Giảm tốc và dừng',go:'Đi tiếp'};
+const lightNames = {red:'Đỏ',yellow:'Vàng',green:'Xanh'};
+const actionForLight = color => ({red:'stop',yellow:'slow',green:'go'})[color];
+const classify = (a,b) => a !== 0 ? 'one' : b === 0 ? 'infinite' : 'none';
+function parseCoefficient(raw) {
+  const value = raw.trim().replace(/−/g, '-').replace(',', '.');
+  if (!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?$/i.test(value)) return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+const num = value => String(Object.is(value,-0) ? 0 : value).replace(/-/g,'−');
+const equation = (a,b) => `${num(a)}x ${b < 0 ? '−' : '+'} ${num(Math.abs(b))} = 0`;
+function rootText(a,b) {
+  const x = -b/a;
+  if (!Number.isFinite(x) || (x === 0 && b !== 0)) return `x = −(${num(b)}) / (${num(a)})`;
+  const rounded = Number(x.toPrecision(8));
+  return `x ${rounded === x ? '=' : '≈'} ${num(rounded)}`;
+}
+// Small pure-logic checks; no dependencies and no changes to classroom UI.
+function selfCheck() {
+  const cases = [[2,-4,'one'],[0,3,'none'],[0,0,'infinite'],[-2,4,'one'],[.5,-.25,'one'],[-0,-0,'infinite'],[1e-12,3,'one']];
+  for (const [a,b,want] of cases) if (classify(a,b)!==want) throw Error('Sai phân loại nghiệm');
+  for (const [color,want] of [['red','stop'],['yellow','slow'],['green','go']]) if (actionForLight(color)!==want) throw Error('Sai hành động của xe');
+  for (const raw of ['', ' ', 'abc', 'Infinity', '0x10']) if(parseCoefficient(raw)!==null) throw Error('Sai kiểm tra hệ số');
+  if (parseCoefficient('-0,25')!==-.25 || rootText(2,0)!=='x = 0' || equation(2,-4)!=='2x − 4 = 0') throw Error('Sai hiển thị số');
+  return {passed:cases.length+11};
+}
+selfCheck();
+let generation = 0, frame = 0, pendingCancel = null;
+let active = 'equation', light = 'red';
+const prediction = {equation:null,traffic:null};
+const running = {equation:false,traffic:false};
+function cancelMotion() {
+  generation++;
+  cancelAnimationFrame(frame);
+  if (pendingCancel) { pendingCancel(); pendingCancel=null; }
+}
+// One cancellable animation at a time; resets also settle the old async run.
+function tween(duration, update, easing=t=>t) {
+  const ticket = generation;
+  return new Promise(resolve => {
+    let start;
+    pendingCancel = () => resolve(false);
+    function tick(now) {
+      if (ticket !== generation) return resolve(false);
+      start ??= now;
+      const t = Math.min((now-start)/duration,1);
+      update(easing(t));
+      if(t<1) frame=requestAnimationFrame(tick);
+      else {pendingCancel=null;resolve(true);}
+    }
+    frame=requestAnimationFrame(tick);
+  });
+}
+function coefficients() {return [parseCoefficient($('a').value),parseCoefficient($('b').value)];}
+function updateControls(kind) {
+  const valid = kind !== 'equation' || coefficients().every(v=>v!==null);
+  $(kind+'-run').disabled = running[kind] || !prediction[kind] || !valid;
+  document.querySelectorAll('#'+kind+'-choices button').forEach(button=> {
+    button.disabled=running[kind];
+    button.setAttribute('aria-pressed',String(button.dataset.choice===prediction[kind]));
+  });
+  $(kind+'-hint').textContent = !valid ? 'Kiểm tra lại các hệ số.' : running[kind] ? 'Đang quan sát điều kiện…' : prediction[kind] ? 'Sẵn sàng quan sát.' : 'Chọn một dự đoán để bắt đầu.';
+}
+function reset(kind) {
+  cancelMotion();
+  running[kind]=false; prediction[kind]=null;
+  $(kind+'-status').textContent=''; $(kind+'-result').hidden=true;
+  $(kind+'-result').replaceChildren();
+  if(kind==='equation') {
+    document.querySelectorAll('.path').forEach(p=>p.classList.remove('active'));
+    $('equation-token').setAttribute('transform','translate(330 10)');
+    updateEquation();
+  } else {
+    $('car').setAttribute('transform','translate(40 0)');
+    updateLight();
+  }
+  updateControls(kind);
+}
+function updateEquation() {
+  const [a,b]=coefficients();
+  ['a','b'].forEach((id,i)=> {
+    const invalid=[a,b][i]===null;
+    $(id).setAttribute('aria-invalid',String(invalid));
+    $(id+'-error').textContent=invalid?'Nhập một số hữu hạn (ví dụ: −2 hoặc 0,5).':'';
+  });
+  const text=a===null||b===null?'Nhập hệ số a và b hợp lệ':equation(a,b);
+  $('equation-display').textContent=text;
+  $('token-text').textContent=a===null||b===null?'ax + b = 0':text;
+}
+function updateLight() {
+  Object.keys(lightNames).forEach(color=> {
+    $('bulb-'+color).classList.toggle('on',color===light);
+    document.querySelector('[data-light="'+color+'"]').setAttribute('aria-pressed',String(color===light));
+  });
+  $('yellow-note').hidden=light!=='yellow';
+  $('traffic-caption').textContent='Đèn '+lightNames[light].toLowerCase()+' · Xe đang chờ mô phỏng';
+}
+function result(kind,answer,explanation) {
+  const box=$(kind+'-result');
+  const title=document.createElement('h3'); title.textContent=labels[answer];
+  const feedback=document.createElement('p');
+  feedback.textContent=prediction[kind]===answer?'Dự đoán của em phù hợp với tình huống này.':`Em dự đoán “${labels[prediction[kind]]}”. Cùng nhìn lại điều kiện nhé!`;
+  const detail=document.createElement('p');detail.textContent=explanation;
+  const connection=document.createElement('p');connection.className='bridge';connection.textContent=bridge;
+  box.replaceChildren(title,feedback,detail,connection);box.hidden=false;
+  running[kind]=false;updateControls(kind);
+}
+async function moveToken(points,duration=1000) {
+  return tween(duration,t=> {
+    const position=t*(points.length-1), i=Math.min(Math.floor(position),points.length-2), f=position-i;
+    const x=points[i][0]+(points[i+1][0]-points[i][0])*f;
+    const y=points[i][1]+(points[i+1][1]-points[i][1])*f;
+    $('equation-token').setAttribute('transform',`translate(${x-90} ${y-24})`);
+  });
+}
+async function runEquation() {
+  if($('equation-run').disabled)return;
+  cancelMotion();running.equation=true;updateControls('equation');
+  $('equation-result').hidden=true;
+  document.querySelectorAll('.path').forEach(p=>p.classList.remove('active'));
+  const [a,b]=coefficients(), answer=classify(a,b);
+  $('token-text').textContent=equation(a,b);
+  $('equation-status').textContent='Đưa phương trình đến trạm kiểm tra a.';
+  $('route-start').classList.add('active');
+  if(!await moveToken([[420,34],[420,137]],700))return;
+  $('equation-status').textContent=a!==0?'a ≠ 0: có thể chia hai vế cho a.':'a = 0: cần kiểm tra thêm hệ số b.';
+  if(!await tween(850,()=>{}))return;
+  if(a!==0) {
+    $('route-one').classList.add('active');
+    if(!await moveToken([[420,137],[170,137],[170,225]],1400))return;
+    $('token-text').textContent=`${num(a)}x = ${num(-b)}`;
+    $('equation-status').textContent=`Chuyển b sang vế phải: ${num(a)}x = ${num(-b)}.`;
+    if(!await tween(1300,()=>{}))return;
+    $('token-text').textContent='x = −b / a';
+    $('equation-status').textContent=`Chia hai vế cho a = ${num(a)}: x = −b / a.`;
+    if(!await moveToken([[170,225],[170,302]],1100))return;
+    $('token-text').textContent=rootText(a,b);
+    result('equation',answer,`Vì a = ${num(a)} ≠ 0, phương trình có một nghiệm: ${rootText(a,b)}.`);
+  } else {
+    $('route-zero').classList.add('active');
+    if(!await moveToken([[420,137],[690,137],[690,250]],1400))return;
+    $('equation-status').textContent=b===0?'b = 0: kiểm tra đẳng thức 0x = 0.':`b = ${num(b)} ≠ 0: vế trái luôn bằng ${num(b)}.`;
+    if(!await tween(1000,()=>{}))return;
+    const x=b===0?825:535;
+    $('route-'+(b===0?'infinite':'none')).classList.add('active');
+    if(!await moveToken([[690,250],[x,250],[x,332]],1300))return;
+    $('token-text').textContent=b===0?'0x = 0':`0 ${b<0?'−':'+'} ${num(Math.abs(b))} ≠ 0`;
+    result('equation',answer,b===0?'Vì a = 0 và b = 0, đẳng thức 0x = 0 luôn đúng với mọi x. Phương trình có vô số nghiệm.':`Vì a = 0 và b ≠ 0, vế trái luôn bằng ${num(b)}, không thể bằng 0. Phương trình vô nghiệm.`);
+  }
+  $('equation-status').textContent='Đã đi hết nhánh phù hợp với dữ liệu.';
+}
+async function runTraffic() {
+  if($('traffic-run').disabled)return;
+  cancelMotion();running.traffic=true;updateControls('traffic');$('traffic-result').hidden=true;
+  const color=light, answer=actionForLight(color);
+  const explain={red:'Đèn đỏ: xe tiến đến và dừng trước vạch.',yellow:'Đèn vàng: xe còn đủ khoảng cách, giảm tốc rồi dừng an toàn trước vạch.',green:'Đèn xanh: xe đi qua vạch và tiếp tục di chuyển.'}[color];
+  $('traffic-status').textContent=explain;
+  $('traffic-caption').textContent='Đèn '+lightNames[color].toLowerCase()+' · '+labels[answer];
+  $('car').setAttribute('transform','translate(40 0)');
+  const target=color==='green'?1010:465;
+  const easing=color==='yellow'?t=>1-Math.pow(1-t,3):color==='red'?t=>t<.7?t/.7*.85:.85+.15*(1-Math.pow(1-(t-.7)/.3,2)):t=>t;
+  if(!await tween(color==='yellow'?4800:color==='red'?3400:4200,t=> {
+    $('car').setAttribute('transform',`translate(${40+(target-40)*t} 0)`);
+  },easing))return;
+  $('traffic-status').textContent=color==='green'?'Xe đã đi qua vạch dừng.':'Xe đã dừng trước vạch.';
+  result('traffic',answer,explain);
+}
+['equation','traffic'].forEach(kind=> {
+  $(kind+'-reset').addEventListener('click',()=>reset(kind));
+  $(kind+'-choices').addEventListener('click',event=> {
+    const button=event.target.closest('[data-choice]');
+    if(!button||running[kind])return;
+    prediction[kind]=button.dataset.choice;
+    $(kind+'-result').hidden=true;updateControls(kind);
+  });
+  $('tab-'+kind).addEventListener('click',()=> {
+    if(active===kind)return;
+    reset(active); active=kind;reset(kind);
+    ['equation','traffic'].forEach(name=> {
+      $(name+'-panel').hidden=name!==kind;
+      $('tab-'+name).setAttribute('aria-selected',String(name===kind));
+      $('tab-'+name).tabIndex=name===kind?0:-1;
+    });
+  });
+});
+document.querySelector('.tabs').addEventListener('keydown',event=> {
+  if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
+  event.preventDefault();
+  const next=event.key==='Home'?'equation':event.key==='End'?'traffic':active==='equation'?'traffic':'equation';
+  $('tab-'+next).click();$('tab-'+next).focus();
+});
+['a','b'].forEach(id=>$(id).addEventListener('input',()=>reset('equation')));
+document.querySelectorAll('[data-preset]').forEach(button=>button.addEventListener('click',()=> {
+  const [a,b]=button.dataset.preset.split(',');$('a').value=a;$('b').value=b;reset('equation');
+}));
+document.querySelectorAll('[data-light]').forEach(button=>button.addEventListener('click',()=> {light=button.dataset.light;reset('traffic');}));
+$('equation-run').addEventListener('click',runEquation);
+$('traffic-run').addEventListener('click',runTraffic);
+reset('equation');reset('traffic');
+</script>
+</body>
+</html>
